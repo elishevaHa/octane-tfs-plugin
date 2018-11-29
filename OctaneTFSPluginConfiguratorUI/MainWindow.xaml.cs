@@ -117,8 +117,8 @@ namespace OctaneTFSPluginConfiguratorUI
         {
             ReadFields();
             try
-            {           
-                
+            {
+                ConnectionCreator.InitRestConnectorForUI();
                 ConnectionCreator.CheckMissingValues(_conDetails);
                 ConnectionCreator.CreateOctaneConnection(_conDetails);
                 ConnectionCreator.CreateTfsConnection(_conDetails);                

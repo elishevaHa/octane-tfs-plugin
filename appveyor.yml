@@ -16,11 +16,11 @@ install:
 
 before_build:
  - cmd: >-     
-        cd .\tools-setup
+        cd .\tools\package
         
         target2017.cmd
         
-        cd..
+        cd -
         
 configuration:
 - Release
@@ -29,11 +29,11 @@ build:
   verbosity: normal
 after_build:
 - cmd: >- 
-        cd .\tools-setup
+        cd .\tools\package
         
         package.cmd
         
-        cd..
+        cd -
  
 test: off
 artifacts:

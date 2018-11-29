@@ -119,15 +119,16 @@ namespace MicroFocus.Adm.Octane.CiPlugins.Tfs.Core.Tools.Connectivity
 			return tfsManager;
 		}
 
-		public static string GetTfsLocationFromHostName()
-		{
-			var hostName = Dns.GetHostName();
-			var domainName = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
-			var result = $"http://{hostName}.{domainName}:8080/tfs/";
-			return result;
-		}
+        public static string GetTfsLocationFromHostName()
+        {
+            var hostName = Dns.GetHostName();
+            var domainName = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
+            var fullHost = hostName + (String.IsNullOrEmpty(domainName) ? "" : "." + domainName);
+            var result = $"http://{fullHost}:8080/tfs/";
+            return result;
+        }
 
-		public static OctaneApis CreateOctaneConnection(ConnectionDetails connectionDetails)
+        public static OctaneApis CreateOctaneConnection(ConnectionDetails connectionDetails)
 		{
 
 			Log.Debug($"Validate connection to Octane {connectionDetails.Host} and sharedspace {connectionDetails.SharedSpace}");

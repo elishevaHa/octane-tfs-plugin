@@ -20,7 +20,9 @@ before_build:
         
         target2017.cmd
         
-        cd -
+        cd ..
+        
+        cd ..
         
 configuration:
 - Release
@@ -33,7 +35,9 @@ after_build:
         
         package.cmd
         
-        cd -
+        cd ..
+        
+        cd ..
  
 test: off
 artifacts:
